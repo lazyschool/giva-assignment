@@ -8,11 +8,14 @@ import Dashboard from "./Dashboard";
 import AdminDashboard from "./AdminDashboard";
 import ChartComponent from "./ChartComponent"; // Import your ChartComponent
 import NavBar from "./NavBar";
+import RealTimeData from "./RealTimeData";
+
 import ProtectedRoute from "./ProtectedRoute";
 
 const DefaultRoute = () => {
   const { user } = useAuth();
-  return user ? <Navigate to="/chart" /> : <Navigate to="/login" />;
+  console.log("hhhh ", user)
+  return user ? <Navigate to="/dashboard" /> : <Navigate to="/dashboard" />;
 };
 
 const AdminProtectedRoute = ({ children }) => {
@@ -34,6 +37,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/realtimedata"
+            element={
+              <ProtectedRoute>
+                <RealTimeData />
               </ProtectedRoute>
             }
           />

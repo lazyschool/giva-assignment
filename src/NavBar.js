@@ -17,15 +17,24 @@ const NavBar = () => {
   return (
     <nav style={styles.nav}>
       <div style={styles.links}>
-        <Link to="/dashboard" style={styles.link}>Home</Link>
+        {user && (
+          <>
+            <Link to="/dashboard" style={styles.link}>Home</Link>
+            <Link to="/dashboard" style={styles.link}>Demo Link 2</Link>
+          </>
+        )}
+
         {role === "admin" && (
           <Link to="/admin-dashboard" style={styles.link}>Admin Dashboard</Link>
         )}
-        <Link to="/dashboard" style={styles.link}>Demo Link 2</Link>
-        <Link to="/signup" style={styles.link}>Sign Up</Link>
-        <Link to="/login" style={styles.link}>Login</Link>
 
-
+        {!user && (
+          <>
+            <Link to="/signup" style={styles.link}>Sign Up</Link>
+            <Link to="/login" style={styles.link}>Login</Link>
+          </>
+        )}
+        <Link to="/realtimedata" style={styles.link}>Real Time Data Test</Link>
       </div>
       {user && (
         <button onClick={handleLogout} style={styles.logoutButton}>

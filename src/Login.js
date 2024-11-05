@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await login(email, password);
-      navigate("/chart"); // Redirect to ChartComponent after successful login
+      navigate("/dashboard"); // Redirect to ChartComponent after successful login
     } catch (err) {
       setError(err.message);
     }
