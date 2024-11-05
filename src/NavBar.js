@@ -22,6 +22,10 @@ const NavBar = () => {
           <Link to="/admin-dashboard" style={styles.link}>Admin Dashboard</Link>
         )}
         <Link to="/dashboard" style={styles.link}>Demo Link 2</Link>
+        <Link to="/signup" style={styles.link}>Sign Up</Link>
+        <Link to="/login" style={styles.link}>Login</Link>
+
+
       </div>
       {user && (
         <button onClick={handleLogout} style={styles.logoutButton}>
